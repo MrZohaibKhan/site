@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - DevOps Engineer</title>
+    <title>[Your Name] - DevOps Engineer</title>
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
 
     <header class="navbar">
         <div class="container">
-            <a href="#" class="logo">Your Name</a>
+            <a href="#" class="logo">[Your Name]</a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -30,115 +34,160 @@
     <main>
         <section id="hero" class="hero-section">
             <div class="container">
-                <h1>Hi, I'm [Your Name]</h1>
-                <h2>DevOps Engineer</h2>
-                <p>Building and automating efficient, scalable infrastructure.</p>
-                <a href="#projects" class="cta-button">View My Work</a>
-            </div>
-        </section>
-        <section id="local-status" class="content-section alt-bg">
-            <div class="container local-info">
-               <h3>My Local Status (Lahore, PKT)</h3>
-               <p>Current Time: <span id="local-time">Loading...</span></p>
-               <p>Current Weather: <span id="local-weather">27°C, Partly Cloudy</span></p>
-               <p><small>Weather information based on the last update and may not be real-time.</small></p>
-           </div>
-       </section>
-
-
-        <section id="about" class="content-section">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>
-                    [Write a compelling paragraph or two about yourself here. Mention your passion for DevOps, key skills (like CI/CD, Cloud platforms - AWS/Azure/GCP, IaC - Terraform/Ansible, Monitoring - Prometheus/Grafana, Containers - Docker/Kubernetes), experience, and career goals. Keep it concise and engaging.]
+                <h1 class="fade-in" style="animation-delay: 0.1s;">Hi, my name is</h1>
+                <h2 class="hero-name fade-in" style="animation-delay: 0.3s;">[Your Name]</h2>
+                <h3 class="hero-tagline fade-in" style="animation-delay: 0.5s;">I build & automate for the cloud.</h3>
+                <p class="hero-description fade-in" style="animation-delay: 0.7s;">
+                    I'm a DevOps Engineer specializing in building efficient, scalable, and reliable cloud infrastructure.
+                    Passionate about CI/CD, Infrastructure as Code, and Cloud Native technologies.
                 </p>
-                <p>
-                    [Maybe add another paragraph about your approach to problem-solving or teamwork.]
-                </p>
+                <a href="#contact" class="cta-button fade-in" style="animation-delay: 0.9s;">Get In Touch</a>
             </div>
         </section>
 
-        <section id="blog" class="content-section alt-bg">
+         <section id="local-status" class="section-padding">
+             <div class="container local-info">
+                 <h3>My Local Status (Lahore, PKT)</h3>
+                 <p>Current Time: <span id="local-time">Loading...</span></p>
+                 <p>Current Weather: <span id="local-weather">27°C, Partly Cloudy</span></p>
+                 <p><small>Weather information based on the last update and may not be real-time.</small></p>
+             </div>
+         </section>
+
+        <section id="about" class="content-section section-padding">
             <div class="container">
-                <h2>Latest Blog Posts</h2>
-                <div class="card-container">
-                    <div class="card">
-                        <h3>Blog Post Title 1</h3>
-                        <p class="date">April 11, 2025</p>
-                        <p>A short excerpt or summary of your blog post goes here. Discussing a recent challenge or a new tool...</p>
-                        <a href="#" class="read-more">Read More &rarr;</a>
-                        </div>
-                    <div class="card">
-                        <h3>Blog Post Title 2</h3>
-                        <p class="date">March 20, 2025</p>
-                        <p>Another summary about a different topic, perhaps a tutorial or a thought piece on DevOps culture...</p>
-                        <a href="#" class="read-more">Read More &rarr;</a>
-                    </div>
-                     <p style="width: 100%; text-align: center; margin-top: 20px;">
-                        <a href="#">View All Posts</a>
+                <h2 class="section-heading">About Me</h2>
+                <div>
+                     <p>
+                        [Write a compelling paragraph or two about yourself here. Use the space to elaborate on your passion for DevOps, your key skills (e.g., AWS/Azure/GCP, Kubernetes, Terraform, Ansible, Jenkins/GitLab CI, Prometheus/Grafana, Python/Bash scripting), relevant experience, and what drives you in your field. Focus on problem-solving and results.]
                     </p>
+                    <p>
+                        [Add another paragraph perhaps about your approach to collaboration, learning, or specific areas of expertise you want to highlight for potential clients.]
+                    </p>
+                     <p>Here are a few technologies I've been working with recently:</p>
+                     <ul class="skill-list">
+                        <li>Kubernetes</li>
+                        <li>AWS (EC2, EKS, S3, Lambda)</li>
+                        <li>Terraform</li>
+                        <li>Ansible</li>
+                        <li>CI/CD (Jenkins, GitLab)</li>
+                        <li>Python</li>
+                        </ul>
+                </div>
+                </div>
+        </section>
+
+        <section id="blog" class="content-section section-padding alt-bg">
+            <div class="container">
+                 <h2 class="section-heading">Latest Blog Posts</h2>
+                <div class="card-container">
+                    <div class="card blog-card"> <div class="card-content">
+                            <p class="card-date">April 11, 2025</p>
+                            <h3 class="card-title"><a href="#">Blog Post Title 1: Mastering X Tool</a></h3>
+                            <p class="card-excerpt">A short excerpt or summary of your blog post goes here. Discussing a recent challenge or a new tool like Kubernetes operators or advanced Terraform modules...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                         </div>
+                    </div>
+                    <div class="card blog-card">
+                         <div class="card-content">
+                             <p class="card-date">March 20, 2025</p>
+                             <h3 class="card-title"><a href="#">Blog Post Title 2: DevOps Culture Thoughts</a></h3>
+                            <p class="card-excerpt">Another summary about a different topic, perhaps a tutorial on setting up monitoring stack or a thought piece on DevOps culture implementation...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                         </div>
+                    </div>
+                     </div>
+                 <div class="view-all-link">
+                    <a href="#" class="cta-button">View All Posts</a>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="content-section">
+        <section id="projects" class="content-section section-padding">
             <div class="container">
-                <h2>Projects</h2>
+                 <h2 class="section-heading">Projects I've Built</h2>
                 <div class="card-container">
-                    <div class="card">
-                        <img src="placeholder-project.png" alt="Project 1 Screenshot" class="card-image"> <h3>Project Title 1</h3>
-                        <p>Brief description of the project, its purpose, and the challenges solved. Highlight the technologies used (e.g., Jenkins, Kubernetes, AWS EKS).</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank">GitHub Repo</a>
-                            <a href="#" target="_blank">Live Demo</a> </div>
-                    </div>
-                    <div class="card">
-                         <img src="placeholder-project.png" alt="Project 2 Screenshot" class="card-image"> <h3>Project Title 2</h3>
-                        <p>Description of another significant project. Maybe focusing on automation scripts, monitoring setup, or a specific CI/CD pipeline.</p>
-                         <div class="project-links">
-                            <a href="#" target="_blank">GitHub Repo</a>
-                        </div>
+                    <div class="card project-card">
+                         <div class="project-content"> <h3 class="project-title"><a href="#" target="_blank">Project Title 1 - Automation Pipeline</a></h3>
+                            <p class="project-description">A more detailed description focusing on the value and challenges. Built using cutting-edge automation techniques to streamline deployment by X% for a client's web application.</p>
+                            <ul class="project-tech-list">
+                                <li>AWS EKS</li>
+                                <li>Terraform</li>
+                                <li>Jenkins</li>
+                                <li>Argo CD</li>
+                            </ul>
+                             <div class="project-links">
+                                <a href="[Your GitHub Repo Link]" target="_blank" aria-label="GitHub Link" class="project-icon-link"><i class="fab fa-github"></i></a>
+                                <a href="[Your Live Demo Link - if applicable]" target="_blank" aria-label="Live Demo" class="project-icon-link"><i class="fas fa-external-link-alt"></i></a>
+                             </div>
+                         </div>
+                         </div>
+                     <div class="card project-card">
+                         <div class="project-content">
+                            <h3 class="project-title"><a href="#" target="_blank">Project Title 2 - Monitoring Stack</a></h3>
+                            <p class="project-description">Implemented a comprehensive monitoring and logging solution using Prometheus, Grafana, and the ELK stack, providing key insights into application performance and reducing downtime.</p>
+                            <ul class="project-tech-list">
+                                <li>Prometheus</li>
+                                <li>Grafana</li>
+                                <li>Elasticsearch</li>
+                                <li>Kibana</li>
+                                <li>Docker</li>
+                            </ul>
+                             <div class="project-links">
+                                <a href="[Your GitHub Repo Link]" target="_blank" aria-label="GitHub Link" class="project-icon-link"><i class="fab fa-github"></i></a>
+                             </div>
+                         </div>
                     </div>
                     </div>
             </div>
         </section>
 
-        <section id="certifications" class="content-section alt-bg">
+        <section id="certifications" class="content-section section-padding alt-bg">
             <div class="container">
-                <h2>Certifications</h2>
+                 <h2 class="section-heading">Certifications</h2>
                 <ul class="certification-list">
                     <li>
-                        <strong>Certification Name 1</strong> (e.g., AWS Certified DevOps Engineer – Professional) - <em>Issuing Body</em>
+                        <strong>AWS Certified DevOps Engineer – Professional</strong> - <em>Amazon Web Services</em>
                         </li>
                      <li>
-                        <strong>Certification Name 2</strong> (e.g., Certified Kubernetes Administrator - CKA) - <em>The Linux Foundation</em>
+                        <strong>Certified Kubernetes Administrator (CKA)</strong> - <em>The Linux Foundation</em>
                     </li>
                      <li>
-                        <strong>Certification Name 3</strong> (e.g., HashiCorp Certified: Terraform Associate) - <em>HashiCorp</em>
+                        <strong>HashiCorp Certified: Terraform Associate</strong> - <em>HashiCorp</em>
                     </li>
                     </ul>
             </div>
         </section>
 
-        <section id="contact" class="content-section">
-             <div class="container">
-                <h2>Get In Touch / Connect</h2>
-                 <p>Feel free to connect with me on social media or reach out via email.</p>
-                <div class="social-links">
+        <section id="contact" class="content-section section-padding">
+             <div class="container contact-container">
+                 <h2 class="section-heading">Get In Touch</h2>
+                 <p class="contact-text">
+                     I'm currently available for freelance opportunities and collaborations.
+                     Whether you have a question or just want to say hi, feel free to reach out!
+                     My inbox is always open.
+                 </p>
+                 <a href="mailto:[Your Email Address]" class="cta-button contact-button">Say Hello</a>
+
+                 <div class="social-links">
                     <a href="[Your LinkedIn URL]" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="[Your GitHub URL]" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="[Your Facebook URL]" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                     <a href="[Your Twitter URL]" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                     <a href="mailto:[Your Email Address]" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
+                    <a href="[Your Facebook URL - Optional]" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                     <a href="[Your Twitter URL - Optional]" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                     </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
-            </div>
+             <div class="social-links-footer">
+                 <a href="[Your LinkedIn URL]" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                 <a href="[Your GitHub URL]" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                 </div>
+            <p>Designed & Built by [Your Name]</p>
+            <p>&copy; <span id="year"></span> All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
