@@ -392,12 +392,7 @@ img {
 }
 
 /* About Section Specifics */
-#about .container {
-    /* Optional: Use Grid for layout with photo */
-    /* display: grid; */
-    /* grid-template-columns: 3fr 2fr; */
-    /* gap: 50px; */
-}
+
 .skill-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));
@@ -676,7 +671,7 @@ footer p:last-child { margin-bottom: 0; }
 
 /* Scroll Animation Base Styles */
 /* Elements start hidden and slightly moved */
-.content-section, .local-info, .card, .certification-list li {
+.content-section, .local-info, .card, .certification-list, .li {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s var(--easing), transform 0.6s var(--easing);
