@@ -341,3 +341,42 @@ footer p {
         margin: 0 0.8rem;
     }
 }
+/* Local Info Section Styles */
+.local-info {
+    text-align: center;
+    padding: 2rem 1.5rem; /* Add padding */
+    background-color: #f8f9fa; /* Use a light background */
+    border-radius: 8px;
+    max-width: 600px; /* Constrain width */
+    margin: 2rem auto 0 auto; /* Center and add margin */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.local-info h3 {
+   margin-bottom: 1rem;
+   font-size: 1.5rem; /* Slightly smaller heading */
+   color: #333;
+}
+
+.local-info h3::after { /* Remove the standard section underline if desired */
+   display: none;
+}
+
+.local-info p {
+   margin-bottom: 0.5rem;
+   font-size: 1rem;
+   color: #555;
+}
+
+#local-time,
+#local-weather {
+    font-weight: 600; /* Make time/weather bold */
+    color: #1a1a1a;
+}
+
+.local-info small {
+    font-size: 0.85rem;
+    color: #777;
+    display: block; /* Make it take its own line */
+    margin-top: 1rem;
+}
