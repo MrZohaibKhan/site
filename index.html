@@ -1,194 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zohaib Khan - DevOps Engineer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zohaib Khan — DevOps & Platform Engineer</title>
+<meta name="description" content="Zohaib Khan — DevOps Engineer transitioning to Platform Engineering. Azure, GitHub, Kubernetes. Measured work, not guessed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Engineering-survey palette: warm paper, ink, blueprint blue */
+  --paper:#F6F4EF;
+  --paper-2:#EFEBE3;
+  --ink:#1A1A17;
+  --ink-soft:#54514A;
+  --ink-faint:#8A877E;
+  --rule:#D7D2C7;
+  --rule-strong:#C4BEB1;
+  --blueprint:#1E4FB8;
+  --blueprint-soft:#3D6BD0;
+  --measure:#B0481F; /* survey/measurement orange, used sparingly */
+  --paper-card:#FBFAF6;
 
-    <link rel="stylesheet" href="style.css">
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Inter",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  --maxw:1180px;
+  --gut:clamp(20px,5vw,72px);
+}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:450;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  /* faint engineering grid, very low contrast */
+  background-image:
+    linear-gradient(var(--rule) 1px,transparent 1px),
+    linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:48px 48px;
+  background-position:-1px -1px;
+  background-blend-mode:multiply;
+}
+body::before{
+  /* soften the grid so it reads as faint draft paper */
+  content:"";position:fixed;inset:0;background:var(--paper);opacity:.92;z-index:-1;pointer-events:none;
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ---------- mono labels / eyebrows ---------- */
+.label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.label .tick{color:var(--measure)}
+
+a{color:inherit;text-decoration:none}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(140%) blur(8px);
+  background:color-mix(in srgb,var(--paper) 86%,transparent);
+  border-bottom:1px solid var(--rule);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.04em;font-weight:600;display:flex;align-items:center;gap:10px}
+.brand .dot{width:8px;height:8px;background:var(--blueprint);border-radius:50%;box-shadow:0 0 0 3px color-mix(in srgb,var(--blueprint) 22%,transparent)}
+.nav{display:flex;gap:28px}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);transition:width .25s ease}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{width:100%}
+@media(max-width:680px){.nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(64px,11vh,128px) 0 clamp(48px,8vh,88px)}
+.hero .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.hero .eyebrow .line{flex:1;height:1px;background:var(--rule-strong);max-width:120px}
+.hero h1{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(40px,8.5vw,96px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  margin-bottom:6px;
+}
+.hero h1 em{font-style:italic;color:var(--blueprint)}
+.hero .role{
+  font-family:var(--mono);
+  font-size:clamp(13px,1.6vw,16px);
+  letter-spacing:.04em;
+  color:var(--ink-soft);
+  margin:18px 0 30px;
+}
+.hero .role b{color:var(--ink);font-weight:600}
+.hero .lede{
+  font-size:clamp(17px,2.1vw,21px);
+  line-height:1.5;
+  max-width:62ch;
+  color:var(--ink);
+}
+.hero .lede .hl{
+  background:linear-gradient(transparent 62%,color-mix(in srgb,var(--blueprint) 22%,transparent) 0);
+  padding:0 1px;
+}
+
+/* hero ledger — the signature: a measured readout of real numbers */
+.ledger{
+  margin-top:clamp(40px,6vh,64px);
+  border:1px solid var(--rule-strong);
+  background:var(--paper-card);
+  border-radius:2px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.ledger .cell{
+  padding:24px 22px;
+  border-right:1px solid var(--rule);
+  position:relative;
+}
+.ledger .cell:last-child{border-right:none}
+.ledger .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.ledger .num{font-family:var(--serif);font-size:clamp(30px,4vw,46px);line-height:1;font-weight:500;letter-spacing:-.01em}
+.ledger .num .u{font-family:var(--mono);font-size:13px;color:var(--blueprint);letter-spacing:0;margin-left:4px;vertical-align:super}
+.ledger .sub{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);margin-top:8px;line-height:1.4}
+.ledger .cell::before{content:"";position:absolute;top:14px;right:14px;width:5px;height:5px;border-top:1px solid var(--rule-strong);border-right:1px solid var(--rule-strong)}
+@media(max-width:820px){.ledger{grid-template-columns:repeat(2,1fr)}.ledger .cell:nth-child(2){border-right:none}.ledger .cell:nth-child(1),.ledger .cell:nth-child(2){border-bottom:1px solid var(--rule)}}
+@media(max-width:480px){.ledger{grid-template-columns:1fr}.ledger .cell{border-right:none;border-bottom:1px solid var(--rule)}.ledger .cell:last-child{border-bottom:none}}
+
+/* ---------- section scaffolding ---------- */
+.section{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:clamp(32px,5vh,52px)}
+.sec-head .idx{font-family:var(--mono);font-size:12px;color:var(--measure);letter-spacing:.1em}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4vw,40px);letter-spacing:-.01em;line-height:1.05}
+.sec-head .meta{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.08em;text-align:right}
+@media(max-width:680px){.sec-head{flex-wrap:wrap;gap:8px}.sec-head .meta{margin-left:0;width:100%;text-align:left}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+@media(max-width:780px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.about p{font-size:17px;line-height:1.62;color:var(--ink);margin-bottom:18px;max-width:58ch}
+.about p .em{font-family:var(--serif);font-style:italic;font-size:18px}
+.about-aside{border-left:2px solid var(--blueprint);padding-left:22px}
+.about-aside dl{display:grid;gap:18px}
+.about-aside dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+.about-aside dd{font-size:14.5px;color:var(--ink)}
+.about-aside dd b{font-weight:600}
+
+/* ---------- case study ---------- */
+.case{
+  background:var(--paper-card);
+  border:1px solid var(--rule-strong);
+  border-radius:2px;
+  overflow:hidden;
+}
+.case-top{padding:clamp(28px,4vw,44px);border-bottom:1px dashed var(--rule-strong)}
+.case-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--measure);margin-bottom:14px}
+.case h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.4vw,34px);line-height:1.08;letter-spacing:-.01em;margin-bottom:16px;max-width:24ch}
+.case h3 em{font-style:italic;color:var(--blueprint)}
+.case-thesis{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:64ch}
+.case-thesis q{font-family:var(--serif);font-style:italic;color:var(--ink);quotes:"\201C" "\201D"}
+
+.case-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:760px){.case-body{grid-template-columns:1fr}}
+.case-col{padding:clamp(24px,3.4vw,36px)}
+.case-col.b{border-left:1px dashed var(--rule-strong)}
+@media(max-width:760px){.case-col.b{border-left:none;border-top:1px dashed var(--rule-strong)}}
+.case-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px}
+.case-list{list-style:none;display:grid;gap:14px}
+.case-list li{display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:14.5px;line-height:1.5}
+.case-list li .k{font-family:var(--mono);font-size:12px;color:var(--blueprint);font-weight:600;white-space:nowrap}
+.case-list li .v{color:var(--ink);}
+.case-list li .v b{font-weight:600}
+
+/* measured bars */
+.bars{display:grid;gap:13px;margin-top:4px}
+.bar-row{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:12px;font-size:13px}
+.bar-row .bl{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.02em}
+.bar-track{height:8px;background:var(--paper-2);border-radius:1px;overflow:hidden;position:relative}
+.bar-fill{height:100%;background:var(--blueprint);width:0;transition:width 1.1s cubic-bezier(.22,.61,.36,1)}
+.bar-fill.alt{background:var(--measure)}
+.bar-row .bv{font-family:var(--mono);font-size:11.5px;color:var(--ink);font-weight:500}
+
+.case-foot{padding:20px clamp(24px,3.4vw,36px);border-top:1px solid var(--rule);background:var(--paper-2);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+.case-foot .ff{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.03em}
+.case-foot .ff b{color:var(--ink)}
+.case-foot .flag{color:var(--measure);font-weight:600}
+
+/* secondary work cards */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+@media(max-width:780px){.work-grid{grid-template-columns:1fr}}
+.work-card{border:1px solid var(--rule);background:var(--paper-card);border-radius:2px;padding:22px;transition:border-color .2s,transform .2s}
+.work-card:hover{border-color:var(--blueprint-soft);transform:translateY(-2px)}
+.work-card .wn{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--measure);margin-bottom:12px}
+.work-card h4{font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:8px;letter-spacing:-.01em}
+.work-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+
+/* ---------- skills ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(max-width:780px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.skills-grid{grid-template-columns:1fr}}
+.skill-cell{background:var(--paper-card);padding:24px 22px}
+.skill-cell h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blueprint);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.skill-cell h4 .n{color:var(--ink-faint);font-size:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);padding:4px 10px;border-radius:1px;letter-spacing:.01em}
+
+/* ---------- certs ---------- */
+.cert-tools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:26px}
+.cert-search{flex:1;min-width:200px;position:relative}
+.cert-search input{
+  width:100%;font-family:var(--mono);font-size:13px;color:var(--ink);
+  background:var(--paper-card);border:1px solid var(--rule-strong);border-radius:2px;
+  padding:11px 14px 11px 36px;outline:none;transition:border-color .2s;
+}
+.cert-search input:focus{border-color:var(--blueprint)}
+.cert-search input::placeholder{color:var(--ink-faint)}
+.cert-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--ink-faint)}
+.cert-filters{display:flex;flex-wrap:wrap;gap:7px}
+.filt{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;cursor:pointer;
+  background:var(--paper-card);border:1px solid var(--rule-strong);color:var(--ink-soft);
+  padding:7px 13px;border-radius:40px;transition:all .18s;user-select:none;
+}
+.filt:hover{border-color:var(--blueprint-soft);color:var(--ink)}
+.filt.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filt .c{opacity:.6;margin-left:5px}
+
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px}
+.cert{
+  background:var(--paper-card);border:1px solid var(--rule);border-radius:2px;
+  padding:18px;display:flex;flex-direction:column;gap:10px;
+  transition:border-color .2s,transform .2s,opacity .2s;position:relative;
+}
+.cert:hover{border-color:var(--blueprint-soft);transform:translateY(-2px)}
+.cert.hide{display:none}
+.cert .ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.cert .badge{
+  width:34px;height:34px;border-radius:6px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:13px;font-weight:600;color:#fff;letter-spacing:-.02em;
+}
+.cert .ctag{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding-top:5px}
+.cert h4{font-family:var(--sans);font-weight:600;font-size:14.5px;line-height:1.3;color:var(--ink)}
+.cert .iss{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:auto}
+.cert .iss .verified{color:var(--blueprint)}
+.cert-empty{font-family:var(--mono);font-size:13px;color:var(--ink-faint);padding:30px 0;grid-column:1/-1;text-align:center}
+.cert-note{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:22px;line-height:1.6;border-top:1px dashed var(--rule-strong);padding-top:18px}
+.cert-note a{color:var(--blueprint);border-bottom:1px solid color-mix(in srgb,var(--blueprint) 40%,transparent)}
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--rule)}
+.contact-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,6vw,72px);align-items:end}
+@media(max-width:760px){.contact-inner{grid-template-columns:1fr;gap:36px}}
+.contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,6vw,60px);line-height:1;letter-spacing:-.02em;margin-bottom:18px}
+.contact h2 em{font-style:italic;color:var(--blueprint)}
+.contact p{font-size:16px;color:var(--ink-soft);max-width:42ch}
+.links{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule-strong);border-radius:2px;overflow:hidden}
+.links a{
+  background:var(--paper-card);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:13px;color:var(--ink);transition:background .18s,padding-left .2s;
+}
+.links a:hover{background:var(--paper-2);padding-left:24px}
+.links a .lv{color:var(--ink-soft);display:flex;align-items:center;gap:10px}
+.links a .arr{color:var(--blueprint);transition:transform .2s}
+.links a:hover .arr{transform:translate(3px,-3px)}
+
+footer{border-top:1px solid var(--rule);padding:30px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+footer .fl{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.04em}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* safety: if JS never runs, content must still be visible */
+.no-js .reveal{opacity:1;transform:none}
+::selection{background:color-mix(in srgb,var(--blueprint) 28%,transparent)}
+:focus-visible{outline:2px solid var(--blueprint);outline-offset:3px;border-radius:2px}
+</style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Zohaib Khan</a>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot"></span>ZOHAIB KHAN</a>
+    <nav class="nav">
+      <a href="#about">about</a>
+      <a href="#case">case study</a>
+      <a href="#skills">skills</a>
+      <a href="#certs">certifications</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow label"><span>DevOps</span><span class="line"></span><span>Platform Engineering</span><span class="line"></span><span class="tick">Lahore, PK</span></div>
+    <h1>Zohaib <em>Khan</em></h1>
+    <div class="role">DevOps Engineer <b>→</b> Platform Engineering &nbsp;·&nbsp; Azure · GitHub · Kubernetes</div>
+    <p class="lede">I build the pipelines and platforms that let teams ship without friction — and before I move anything, I <span class="hl">measure it</span>. Currently mapping a ~75-project Azure DevOps estate to GitHub for an enterprise dealer-systems group.</p>
+
+    <div class="ledger reveal" aria-label="Measured baseline of current work">
+      <div class="cell"><div class="cap">ADO projects mapped</div><div class="num" data-count="75">0</div><div class="sub">~10 active · ~60 dormant, triaged</div></div>
+      <div class="cell"><div class="cap">Git repos inventoried</div><div class="num" data-count="155">0</div><div class="sub">measured, not estimated</div></div>
+      <div class="cell"><div class="cap">Work items, exact</div><div class="num" data-count="93700">0</div><div class="sub">via Analytics OData</div></div>
+      <div class="cell"><div class="cap">Pipeline objects</div><div class="num" data-count="361">0</div><div class="sub">~98 live classic, hand-rebuild</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">01</span>
+      <h2>How I work</h2>
+      <span class="meta">DevOps Engineer<br>Nov 2022 — present</span>
+    </div>
+    <div class="about-grid">
+      <div class="about">
+        <p>I'm a DevOps engineer at <b>Contour Software · Constellation Dealer Group</b>, working across Azure DevOps, .NET and React applications, and a deep stack of legacy desktop products. My day-to-day is build pipelines, deployment architecture, DevSecOps, and least-privilege access — the unglamorous plumbing that decides whether a release is calm or chaotic.</p>
+        <p><span class="em">The thing I'm known for is rigor.</span> I don't guess at scope. When the org asked whether we could move from Azure DevOps to GitHub, I didn't write an opinion — I pulled live data through an MCP server and the Release Management REST API and produced a measured baseline down to the individual classic release definition.</p>
+        <p>I'm now transitioning toward <b>Platform Engineering</b>: treating internal tooling as a product, reducing toil for the teams around me, and building the paved roads that make the right thing the easy thing. Longer term, I care deeply about AI safety, interpretability, and alignment.</p>
+      </div>
+      <div class="about-aside">
+        <dl>
+          <div><dt>Current focus</dt><dd>Azure DevOps → GitHub migration · platform tooling · DevSecOps</dd></div>
+          <div><dt>Stack</dt><dd><b>Azure</b>, GitHub Actions, Kubernetes, Docker, .NET Core, PowerShell, Bicep/ARM</dd></div>
+          <div><dt>Certifications</dt><dd><b>50+</b> — incl. CKA, CKAD, Azure DevOps Engineer Expert</dd></div>
+          <div><dt>Education</dt><dd>BSc Computer Science, Virtual University</dd></div>
+          <div><dt>Values</dt><dd>Measure first. Least privilege. Reduce toil. Honest feedback over reassurance.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section" id="case">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">02</span>
+      <h2>Featured case study</h2>
+      <span class="meta">Wave-0 Discovery<br>data-complete · 2026-06-23</span>
+    </div>
+
+    <div class="case reveal">
+      <div class="case-top">
+        <div class="case-kicker">Azure DevOps → GitHub · Enterprise migration assessment</div>
+        <h3>Measuring a 75-project estate before <em>moving a single repo</em></h3>
+        <p class="case-thesis"><q>You cannot plan, price, or sequence a migration you haven't measured.</q> So I built the measured baseline — live data, not assumptions — that every downstream phasing and cost decision now derives from.</p>
+      </div>
+
+      <div class="case-body">
+        <div class="case-col a">
+          <h4>What I found</h4>
+          <ul class="case-list">
+            <li><span class="k">85%</span><span class="v">of the entire effort lives in <b>one project</b> — “Ideal” (132 repos, 51 teams, 68,324 work items). Reframed the program from “migrate 75 projects” to “migrate one well.”</span></li>
+            <li><span class="k">146</span><span class="v">classic Release definitions — a <b>previously-invisible workstream</b>, surfaced via the Release Management REST API the MCP server couldn't reach. 89 live, all hand-rebuilds.</span></li>
+            <li><span class="k">~95%</span><span class="v">of build pipelines are YAML — porting mechanically. Only <b>~10 classic builds</b> need rebuilding. Good news, made legible.</span></li>
+            <li><span class="k">221</span><span class="v">branch policies mapped to GitHub rulesets — flagging the <b>36 work-item-linking policies with no native equivalent.</b></span></li>
+          </ul>
         </div>
-    </header>
-
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <h1 class="fade-in" style="animation-delay: 0.1s;">Hi, my name is</h1>
-                <h2 class="hero-name fade-in" style="animation-delay: 0.3s;">Zohaib Khan</h2>
-                <h3 class="hero-tagline fade-in" style="animation-delay: 0.5s;">I build & automate for the cloud.</h3>
-                <p class="hero-description fade-in" style="animation-delay: 0.7s;">
-                    I'm a DevOps Engineer specializing in building efficient, scalable, and reliable cloud infrastructure.
-                    Passionate about CI/CD, Infrastructure as Code, and Cloud Native technologies.
-                </p>
-                <a href="#contact" class="cta-button fade-in" style="animation-delay: 0.9s;">Get In Touch</a>
-            </div>
-        </section>
-
-        <section id="about" class="content-section section-padding">
-            <div class="container">
-                <h2 class="section-heading">About Me</h2>
-                <div>
-                     <p>
-                        [Write a compelling paragraph or two about yourself here. Use the space to elaborate on your passion for DevOps, your key skills (e.g., AWS/Azure/GCP, Kubernetes, Terraform, Ansible, Jenkins/GitLab CI, Prometheus/Grafana, Python/Bash scripting), relevant experience, and what drives you in your field. Focus on problem-solving and results.]
-                    </p>
-                    <p>
-                        [Add another paragraph perhaps about your approach to collaboration, learning, or specific areas of expertise you want to highlight for potential clients.]
-                    </p>
-                     <p>Here are a few technologies I've been working with recently:</p>
-                     <ul class="skill-list">
-                        <li>Kubernetes</li>
-                        <li>Azure (VM, AVD, AKS, Apps)</li>
-                        <li>Terraform</li>
-                        <li>Ansible</li>
-                        <li>CI/CD (Jenkins, GitLab)</li>
-                        <li>Python</li>
-                        </ul>
-                </div>
-                </div>
-        </section>
-
-        <section id="blog" class="content-section section-padding alt-bg">
-            <div class="container">
-                 <h2 class="section-heading">Latest Blog Posts</h2>
-                <div class="card-container">
-                    <div class="card blog-card"> <div class="card-content">
-                            <p class="card-date">April 11, 2025</p>
-                            <h3 class="card-title"><a href="#">Blog Post Title 1: Mastering X Tool</a></h3>
-                            <p class="card-excerpt">A short excerpt or summary of your blog post goes here. Discussing a recent challenge or a new tool like Kubernetes operators or advanced Terraform modules...</p>
-                            <a href="#" class="read-more">Read More &rarr;</a>
-                         </div>
-                    </div>
-                    <div class="card blog-card">
-                         <div class="card-content">
-                             <p class="card-date">March 20, 2025</p>
-                             <h3 class="card-title"><a href="#">Blog Post Title 2: DevOps Culture Thoughts</a></h3>
-                            <p class="card-excerpt">Another summary about a different topic, perhaps a tutorial on setting up monitoring stack or a thought piece on DevOps culture implementation...</p>
-                            <a href="#" class="read-more">Read More &rarr;</a>
-                         </div>
-                    </div>
-                     </div>
-                 <div class="view-all-link">
-                    <a href="#" class="cta-button">View All Posts</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="content-section section-padding">
-            <div class="container">
-                 <h2 class="section-heading">Projects I've Built</h2>
-                <div class="card-container">
-                    <div class="card project-card">
-                         <div class="project-content"> <h3 class="project-title"><a href="#" target="_blank">Project Title 1 - Automation Pipeline</a></h3>
-                            <p class="project-description">A more detailed description focusing on the value and challenges. Built using cutting-edge automation techniques to streamline deployment by X% for a client's web application.</p>
-                            <ul class="project-tech-list">
-                                <li>AWS EKS</li>
-                                <li>Terraform</li>
-                                <li>Jenkins</li>
-                                <li>Argo CD</li>
-                            </ul>
-                             <div class="project-links">
-                                <a href="[Your GitHub Repo Link]" target="_blank" aria-label="GitHub Link" class="project-icon-link"><i class="fab fa-github"></i></a>
-                                <a href="[Your Live Demo Link - if applicable]" target="_blank" aria-label="Live Demo" class="project-icon-link"><i class="fas fa-external-link-alt"></i></a>
-                             </div>
-                         </div>
-                         </div>
-                     <div class="card project-card">
-                         <div class="project-content">
-                            <h3 class="project-title"><a href="#" target="_blank">Project Title 2 - Monitoring Stack</a></h3>
-                            <p class="project-description">Implemented a comprehensive monitoring and logging solution using Prometheus, Grafana, and the ELK stack, providing key insights into application performance and reducing downtime.</p>
-                            <ul class="project-tech-list">
-                                <li>Prometheus</li>
-                                <li>Grafana</li>
-                                <li>Elasticsearch</li>
-                                <li>Kibana</li>
-                                <li>Docker</li>
-                            </ul>
-                             <div class="project-links">
-                                <a href="[Your GitHub Repo Link]" target="_blank" aria-label="GitHub Link" class="project-icon-link"><i class="fab fa-github"></i></a>
-                             </div>
-                         </div>
-                    </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="certifications" class="content-section section-padding alt-bg">
-            <div class="container">
-                 <h2 class="section-heading">Certifications</h2>
-                <ul class="certification-list">
-                    <li>
-                        <strong>Microsoft Certified: Azure Solutions Architect Expert</strong>  <em>Microsoft</em>
-                        </li>
-                     <li>
-                        <strong>Certified Kubernetes Administrator (CKA)</strong>  <em>The Linux Foundation</em>
-                    </li>
-                    <li>
-                        <strong>Certified Kubernetes Application Developer (CKAD)</strong>  <em>The Linux Foundation</em>
-                    </li>
-                     <li>
-                        <strong>Microsoft Certified: DevOps Engineer Expert</strong>  <em>Microsoft</em>
-                    </li>
-                    </ul>
-            </div>
-        </section>
-
-        <section id="contact" class="content-section section-padding">
-             <div class="container contact-container">
-                 <h2 class="section-heading">Get In Touch</h2>
-                 <p class="contact-text">
-                     I'm currently available for freelance opportunities and collaborations.
-                     Whether you have a question or just want to say hi, feel free to reach out!
-                     My inbox is always open.
-                 </p>
-                 <a href="mailto:muzohaibkhan@gmail.com" class="cta-button contact-button">Say Hello</a>
-                 <section id="local-status" class="section-padding">
-                    <div class="container local-info">
-                        <h3>Location (Lahore, PKT)</h3>
-                        <p>Current Time: <span id="local-time">Loading...</span></p>
-                    </div>
-                </section>
-                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/mrzohaibkhan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/MrZohaibKhan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="[Your Facebook URL - Optional]" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                     <a href="[Your Twitter URL - Optional]" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                     </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-             <div class="social-links-footer">
-                 <a href="https://www.linkedin.com/in/mrzohaibkhan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                 <a href="https://github.com/MrZohaibKhan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                 </div>
-            <p>Designed & Built by Zohaib Khan</p>
-            <p>&copy; <span id="year"></span> All rights reserved.</p>
+        <div class="case-col b">
+          <h4>Effort concentration</h4>
+          <div class="bars" id="bars">
+            <div class="bar-row"><span class="bl">Ideal Computer Systems</span><span class="bar-track"><span class="bar-fill" data-w="85"></span></span><span class="bv">85%</span></div>
+            <div class="bar-row"><span class="bl">c-Systems +Target</span><span class="bar-track"><span class="bar-fill" data-w="10"></span></span><span class="bv">10%</span></div>
+            <div class="bar-row"><span class="bl">Everything else</span><span class="bar-track"><span class="bar-fill" data-w="5"></span></span><span class="bv">5%</span></div>
+          </div>
+          <h4 style="margin-top:28px">Rebuild dependencies, counted</h4>
+          <ul class="case-list">
+            <li><span class="k">23</span><span class="v">service connections — <b>14 secret-based to rotate</b>, 5 already on OIDC</span></li>
+            <li><span class="k">136</span><span class="v">service hooks / webhooks to re-point</span></li>
+            <li><span class="k">44</span><span class="v">self-hosted agents in one pool to re-home as runners</span></li>
+          </ul>
         </div>
-    </footer>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="case-foot">
+        <span class="ff"><b>Tools:</b> Azure DevOps MCP server · Release Mgmt REST API · Analytics OData · Graph/Identity API</span>
+        <span class="ff flag">⚑ Flagship risk: a single 44-stage “Release — Prod” definition</span>
+      </div>
+    </div>
+
+    <div class="work-grid">
+      <div class="work-card reveal"><div class="wn">SUPPORTING WORK</div><h4>Snyk SAST in CI/CD</h4><p>Integrated DevSecOps static analysis across multiple pipelines — policy files, org-slug config, token scoping — in collaboration with the security team.</p></div>
+      <div class="work-card reveal"><div class="wn">SUPPORTING WORK</div><h4>@claude ADO bot</h4><p>Designed a phased architecture (Azure Function → MCP → Logic Apps) for a PR &amp; work-item bot with async Service Bus processing and App Insights logging.</p></div>
+      <div class="work-card reveal"><div class="wn">SUPPORTING WORK</div><h4>Release-date stamping</h4><p>PowerShell pipeline stamping release dates onto ADO work items via WIQL — extended to cover both Defect and Bug types on request.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">03</span>
+      <h2>Toolchain</h2>
+      <span class="meta">what I reach for</span>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-cell"><h4>Cloud / Azure <span class="n">07</span></h4><div class="chips"><span class="chip">Functions</span><span class="chip">Web Apps</span><span class="chip">Container Apps</span><span class="chip">Virtual Desktop</span><span class="chip">AI Foundry</span><span class="chip">Defender</span><span class="chip">APIM</span></div></div>
+      <div class="skill-cell"><h4>CI/CD <span class="n">06</span></h4><div class="chips"><span class="chip">Azure DevOps</span><span class="chip">GitHub Actions</span><span class="chip">Pipelines YAML</span><span class="chip">Classic / Release</span><span class="chip">Bicep</span><span class="chip">ARM</span></div></div>
+      <div class="skill-cell"><h4>Containers <span class="n">05</span></h4><div class="chips"><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Swarm</span><span class="chip">RBAC</span><span class="chip">PodSecurity</span></div></div>
+      <div class="skill-cell"><h4>Languages <span class="n">05</span></h4><div class="chips"><span class="chip">PowerShell</span><span class="chip">Python</span><span class="chip">Bash</span><span class="chip">.NET Core</span><span class="chip">Node.js</span></div></div>
+      <div class="skill-cell"><h4>DevSecOps <span class="n">04</span></h4><div class="chips"><span class="chip">Snyk SAST</span><span class="chip">Defender for DevOps</span><span class="chip">Least privilege</span><span class="chip">GHAS</span></div></div>
+      <div class="skill-cell"><h4>Data / Platform <span class="n">05</span></h4><div class="chips"><span class="chip">MS SQL Server</span><span class="chip">MySQL / MariaDB</span><span class="chip">MkDocs</span><span class="chip">MCP servers</span><span class="chip">IIS / NginX</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="section" id="certs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx">04</span>
+      <h2>Certifications</h2>
+      <span class="meta" id="cert-meta">— of — shown</span>
+    </div>
+
+    <div class="cert-tools">
+      <div class="cert-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="certSearch" placeholder="search 50+ certifications…" aria-label="Search certifications">
+      </div>
+      <div class="cert-filters" id="certFilters"></div>
+    </div>
+
+    <div class="cert-grid" id="certGrid"></div>
+    <div class="cert-note">
+      Showing a verified selection from my CV. The full set of <b>50+ certifications</b> — with credential IDs and verification — lives on LinkedIn. <a href="https://www.linkedin.com/in/mrzohaibkhan" target="_blank" rel="noopener">View all on LinkedIn ↗</a>
+      <br><span style="opacity:.7">⚙ To add the rest: append objects to the <code>certs</code> array in this file — name, issuer, category. No build step.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <h2>Let's build the <em>paved road.</em></h2>
+        <p>Open to Platform &amp; DevOps engineering conversations. The fastest way to reach me is email or LinkedIn.</p>
+      </div>
+      <div class="links">
+        <a href="mailto:muzohaibkhan@gmail.com"><span class="lv">Email</span><span><span class="arr">↗</span></span></a>
+        <a href="https://www.codechef.com/users/zohaibkhan_1" target="_blank" rel="noopener"><span class="lv">CodeChef</span><span><span class="arr">↗</span></span></a>
+        <a href="https://github.com/mrzohaibkhan" target="_blank" rel="noopener"><span class="lv">GitHub</span><span><span class="arr">↗</span></span></a>
+        <a href="tel:+923004722192"><span class="lv">+92 300 472 2192</span><span><span class="arr">↗</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fl">© 2026 Zohaib Khan · Lahore, PK</span>
+    <span class="fl">Measured, not guessed.</span>
+  </div>
+</footer>
+
+<script>
+/* ---------- certifications data ----------
+   Add more by appending { name, issuer, cat } objects.
+   cat must be one of the keys in catMeta below. */
+const catMeta = {
+  azure:    {label:"Azure",      color:"#0078D4"},
+  devops:   {label:"DevOps",     color:"#1E4FB8"},
+  k8s:      {label:"Kubernetes", color:"#326CE5"},
+  security: {label:"Security",   color:"#B0481F"},
+  dev:      {label:"Development", color:"#5A2D82"},
+  cloud:    {label:"Cloud",      color:"#0B7261"},
+  other:    {label:"Other",      color:"#54514A"}
+};
+
+const certs = [
+  {name:"Microsoft Certified: DevOps Engineer Expert", issuer:"Microsoft", cat:"devops", verified:true},
+  {name:"Microsoft Certified: Azure Administrator Associate", issuer:"Microsoft", cat:"azure", verified:true},
+  {name:"Microsoft Certified: Azure Fundamentals", issuer:"Microsoft", cat:"azure", verified:true},
+  {name:"Certified Kubernetes Administrator (CKA)", issuer:"Linux Foundation", cat:"k8s", verified:true},
+  {name:"Certified Kubernetes Application Developer (CKAD)", issuer:"Linux Foundation", cat:"k8s", verified:true},
+  {name:"Networking and Cloud Computing", issuer:"NAVTTC", cat:"cloud", verified:true},
+  {name:"Python Specialization", issuer:"University of Michigan", cat:"dev", verified:true},
+  {name:"Forward Program", issuer:"McKinsey & Company", cat:"other", verified:true},
+  /* --- placeholders representing the wider 50+ set; replace with your real ones --- */
+  {name:"GitHub Actions", issuer:"GitHub", cat:"devops"},
+  {name:"GitHub Foundations", issuer:"GitHub", cat:"devops"},
+  {name:"Defender for DevOps / DevSecOps", issuer:"Microsoft", cat:"security"},
+];
+
+const grid = document.getElementById('certGrid');
+const filtersEl = document.getElementById('certFilters');
+const metaEl = document.getElementById('cert-meta');
+const searchEl = document.getElementById('certSearch');
+let activeCat = 'all', query = '';
+
+function initials(c){
+  const map={azure:"Az",devops:"Do",k8s:"K8",security:"Se",dev:"Dv",cloud:"Cl",other:"··"};
+  return map[c]||"··";
+}
+
+// build filter chips with live counts
+const counts = certs.reduce((a,c)=>{a[c.cat]=(a[c.cat]||0)+1;return a;},{});
+const cats = ['all', ...Object.keys(catMeta).filter(k=>counts[k])];
+filtersEl.innerHTML = cats.map(c=>{
+  const n = c==='all' ? certs.length : counts[c];
+  const lbl = c==='all' ? 'All' : catMeta[c].label;
+  return `<span class="filt${c==='all'?' on':''}" data-cat="${c}">${lbl}<span class="c">${n}</span></span>`;
+}).join('');
+
+function render(){
+  let shown=0;
+  grid.innerHTML = certs.map(c=>{
+    const m = catMeta[c.cat]||catMeta.other;
+    const match = (activeCat==='all'||c.cat===activeCat) &&
+      (c.name.toLowerCase().includes(query)||c.issuer.toLowerCase().includes(query));
+    if(match) shown++;
+    return `<article class="cert${match?'':' hide'}">
+      <div class="ctop">
+        <span class="badge" style="background:${m.color}">${initials(c.cat)}</span>
+        <span class="ctag">${m.label}</span>
+      </div>
+      <h4>${c.name}</h4>
+      <span class="iss">${c.issuer}${c.verified?' · <span class="verified">verified</span>':''}</span>
+    </article>`;
+  }).join('');
+  if(shown===0) grid.insertAdjacentHTML('beforeend',`<div class="cert-empty">No certifications match “${query}”. Try a broader term.</div>`);
+  metaEl.textContent = `${shown} of ${certs.length} shown`;
+}
+
+filtersEl.addEventListener('click', e=>{
+  const f = e.target.closest('.filt'); if(!f) return;
+  activeCat = f.dataset.cat;
+  filtersEl.querySelectorAll('.filt').forEach(x=>x.classList.toggle('on', x===f));
+  render();
+});
+searchEl.addEventListener('input', e=>{ query = e.target.value.trim().toLowerCase(); render(); });
+render();
+
+/* ---------- count-up on the ledger ---------- */
+function animateCount(el){
+  const target = +el.dataset.count;
+  const dur = 1400, start = performance.now();
+  const fmt = n => n>=1000 ? Math.round(n).toLocaleString() : Math.round(n);
+  function step(t){
+    const p = Math.min((t-start)/dur,1);
+    const e = 1-Math.pow(1-p,3);
+    el.firstChild ? el.firstChild.nodeValue = fmt(target*e) : el.textContent = fmt(target*e);
+    if(p<1) requestAnimationFrame(step);
+    else el.textContent = fmt(target);
+  }
+  requestAnimationFrame(step);
+}
+
+/* ---------- scroll reveals ---------- */
+const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(reduce){
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  document.querySelectorAll('.ledger .num').forEach(el=>el.textContent=(+el.dataset.count).toLocaleString());
+  document.querySelectorAll('.bar-fill').forEach(el=>el.style.width=el.dataset.w+'%');
+}else{
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      en.target.classList.add('in');
+      if(en.target.classList.contains('ledger')) en.target.querySelectorAll('.num').forEach(animateCount);
+      if(en.target.querySelector && en.target.querySelector('.bar-fill')){}
+      io.unobserve(en.target);
+    });
+  },{threshold:.25});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const barIO = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      en.target.querySelectorAll('.bar-fill').forEach((b,i)=>setTimeout(()=>b.style.width=b.dataset.w+'%', i*140));
+      barIO.unobserve(en.target);
+    });
+  },{threshold:.4});
+  const bars = document.getElementById('bars'); if(bars) barIO.observe(bars);
+}
+
+/* failsafe: nothing stays invisible past 3s regardless of observer behavior */
+setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));},3000);
+</script>
 </body>
 </html>
